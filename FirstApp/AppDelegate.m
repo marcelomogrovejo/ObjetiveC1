@@ -10,32 +10,46 @@
 #import "HomeViewController.h"
 #import "ContactViewController.h"
 #import "HelpViewController.h"
+#import "MainViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Add a general window
+    self.window = [[UIWindow alloc] init /*WithFrame:UIScreen.mainScreen.bounds*/];
+    self.window.backgroundColor = [UIColor grayColor];
 
-    // Add items (controllers) for adding to tab bar
-    // Adding home
+    // Add a tab bar
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+
+    // Add tab as initial screen
+    self.window.rootViewController = tabBarController;
+    
+    // Add items (controllers) for adding to the nav bar
+    // Adding home page
     HomeViewController *homeViewController = [[HomeViewController alloc] init];
-    homeViewController.tabBarItem.title = @"Home";
+    
+    // Add a nav bar for home section
+    UINavigationController *homeNavBar = [[UINavigationController alloc] init];
+    // It's an array of controller, can be more than one
+    homeNavBar.viewControllers = @[homeViewController];
+    homeNavBar.tabBarItem.title = @"Home";
+    homeNavBar.tabBarItem.image = [UIImage imageNamed:@"home"];
 
     // Adding contact
     ContactViewController *contactViewController = [[ContactViewController alloc] init];
     contactViewController.tabBarItem.title = @"Contact";
+    contactViewController.tabBarItem.image = [UIImage imageNamed:@"contact"];
     
     // Adding help
     HelpViewController *helpViewController = [[HelpViewController alloc] init];
     helpViewController.tabBarItem.title = @"Help";
+    helpViewController.tabBarItem.image = [UIImage imageNamed:@"help"];
     
-    // Add a tab bar and their items
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[homeViewController, contactViewController, helpViewController];
+    // Add the tab bar items
+    tabBarController.viewControllers = @[homeNavBar, contactViewController, helpViewController];
 
-    // Add a general window
-    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    self.window.backgroundColor = [UIColor grayColor];
-    self.window.rootViewController = tabBarController;
+    // Make windows visible
     [self.window makeKeyAndVisible];
 
     return YES;

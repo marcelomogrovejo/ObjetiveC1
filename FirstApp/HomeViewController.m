@@ -7,7 +7,7 @@
 //
 
 #import "HomeViewController.h"
-#import "HomeView.h"
+#import "MainViewController.h"
 
 @interface HomeViewController ()
 
@@ -15,14 +15,12 @@
 
 @implementation HomeViewController
 
+// 2.
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Adding a view
-    HomeView *homeView = [[HomeView alloc] init];
-    homeView.backgroundColor = [UIColor orangeColor];
-    
-    [self.view addSubview:homeView];
+    // Because of nav bar starts here
+    self.navigationItem.title = @"Home";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,14 +28,38 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+// 1.
+-(void)loadView {
+    // Add a view
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor orangeColor];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    // Add a button
+    UIButton *button = [[UIButton alloc] init];
+    button.frame = CGRectMake(100, 100, 100, 100);
+    
+    // Define the normal state and text
+    [button setTitle:@"Press Me" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    
+    // Define the pressing state and text
+    [button setTitle:@"Pressed" forState:UIControlStateHighlighted];
+    [button setTitleColor:[UIColor yellowColor] forState:UIControlStateHighlighted];
+    
+    // Add an action to the button
+    [button addTarget:self action:@selector(goToMain) forControlEvents:UIControlEventTouchUpInside];
+    
+    [view addSubview:button];
+    
+    self.view = view;
 }
-*/
+
+- (void)goToMain {
+    // Adding main application page
+    MainViewController *mainViewController = [[MainViewController alloc] init];
+    
+    [self.navigationController pushViewController:mainViewController animated:YES];
+}
+
 
 @end
