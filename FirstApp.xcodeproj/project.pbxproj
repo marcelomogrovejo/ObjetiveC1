@@ -10,6 +10,7 @@
 		163E6C5E1CE3A77800E971A0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 163E6C5D1CE3A77800E971A0 /* MainViewController.m */; };
 		163E6C641CE3BC9600E971A0 /* BodyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 163E6C631CE3BC9600E971A0 /* BodyViewController.m */; };
 		163E6CB51CE4FA5E00E971A0 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 163E6CB41CE4FA5E00E971A0 /* ExampleViewController.m */; };
+		163E6CBD1CE515A100E971A0 /* DashboardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 163E6CBC1CE515A100E971A0 /* DashboardTableViewController.m */; };
 		9CE5AF6F1CE296E100445462 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE5AF6E1CE296E100445462 /* main.m */; };
 		9CE5AF721CE296E100445462 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE5AF711CE296E100445462 /* AppDelegate.m */; };
 		9CE5AF7A1CE296E100445462 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CE5AF791CE296E100445462 /* Assets.xcassets */; };
@@ -26,6 +27,8 @@
 		163E6C631CE3BC9600E971A0 /* BodyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BodyViewController.m; path = ../BodyViewController.m; sourceTree = "<group>"; };
 		163E6CB31CE4FA5E00E971A0 /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
 		163E6CB41CE4FA5E00E971A0 /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
+		163E6CBB1CE515A100E971A0 /* DashboardTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardTableViewController.h; sourceTree = "<group>"; };
+		163E6CBC1CE515A100E971A0 /* DashboardTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardTableViewController.m; sourceTree = "<group>"; };
 		9CE5AF6A1CE296E100445462 /* FirstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE5AF6E1CE296E100445462 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9CE5AF701CE296E100445462 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 				163E6C631CE3BC9600E971A0 /* BodyViewController.m */,
 				163E6CB31CE4FA5E00E971A0 /* ExampleViewController.h */,
 				163E6CB41CE4FA5E00E971A0 /* ExampleViewController.m */,
+				163E6CBB1CE515A100E971A0 /* DashboardTableViewController.h */,
+				163E6CBC1CE515A100E971A0 /* DashboardTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CE5AF8C1CE29A1600445462 /* HelpViewController.m in Sources */,
+				163E6CBD1CE515A100E971A0 /* DashboardTableViewController.m in Sources */,
 				9CE5AF721CE296E100445462 /* AppDelegate.m in Sources */,
 				163E6CB51CE4FA5E00E971A0 /* ExampleViewController.m in Sources */,
 				9CE5AF891CE29A0D00445462 /* ContactViewController.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
+#import "DashboardTableViewController.h"
 #import "ContactViewController.h"
 #import "HelpViewController.h"
 #import "MainViewController.h"
@@ -36,6 +37,15 @@
     homeNavBar.tabBarItem.title = @"Home";
     homeNavBar.tabBarItem.image = [UIImage imageNamed:@"home"];
 
+    // Add items (controllers) for adding to the nav bar
+    DashboardTableViewController *dashboardTableViewController = [[DashboardTableViewController alloc] init];
+    
+    // Adding a nav bar for dashboard section
+    UINavigationController *dashboardNavBar = [[UINavigationController alloc] init];
+    dashboardNavBar.viewControllers = @[dashboardTableViewController];
+    dashboardNavBar.tabBarItem.title = @"Dashboard";
+    dashboardNavBar.tabBarItem.image = [UIImage imageNamed:@"dashboard"];
+    
     // Adding contact
     ContactViewController *contactViewController = [[ContactViewController alloc] init];
     contactViewController.tabBarItem.title = @"Contact";
@@ -47,7 +57,7 @@
     helpViewController.tabBarItem.image = [UIImage imageNamed:@"help"];
     
     // Add the tab bar items
-    tabBarController.viewControllers = @[homeNavBar, contactViewController, helpViewController];
+    tabBarController.viewControllers = @[homeNavBar, dashboardNavBar, contactViewController, helpViewController];
 
     // Make windows visible
     [self.window makeKeyAndVisible];

@@ -11,6 +11,7 @@
 @interface HelpViewController () <UITextViewDelegate>
 
 @property(strong, nonatomic) UITextView *textView;
+@property(strong, nonatomic) UIButton *turnLight;
 
 @end
 
@@ -32,16 +33,17 @@
     [self.view addSubview:self.textView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+// Implementing delegate method from UITextView class
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     if ([text containsString:@"."]) {
         return YES;
     }
     return NO;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end
