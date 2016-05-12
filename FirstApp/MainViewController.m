@@ -34,7 +34,7 @@
     
     // Add a button
     self.buttonA = [[UIButton alloc] init];
-    self.buttonA.frame = CGRectMake(100, 100, 100, 100);
+    self.buttonA.frame = CGRectMake(100, 100, 100, 50);
     
     // Define the normal state and text
     [self.buttonA setTitle:@"Send A" forState:UIControlStateNormal];
@@ -51,7 +51,7 @@
     
     // Add a button
     self.buttonB = [[UIButton alloc] init];
-    self.buttonB.frame = CGRectMake(100, 200, 100, 100);
+    self.buttonB.frame = CGRectMake(100, 200, 100, 50);
     
     // Define the normal state and text
     [self.buttonB setTitle:@"Send B" forState:UIControlStateNormal];

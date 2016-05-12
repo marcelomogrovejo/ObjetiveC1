@@ -8,7 +8,9 @@
 
 #import "HelpViewController.h"
 
-@interface HelpViewController ()
+@interface HelpViewController () <UITextViewDelegate>
+
+@property(strong, nonatomic) UITextView *textView;
 
 @end
 
@@ -20,9 +22,26 @@
     self.view.backgroundColor = [UIColor greenColor];
 }
 
+- (void)loadView {
+    self.view = [[UIView alloc] init];
+    
+    self.textView = [[UITextView alloc] init];
+    self.textView.frame = CGRectMake(100, 100, 100, 100);
+    self.textView.delegate = self;
+    
+    [self.view addSubview:self.textView];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([text containsString:@"."]) {
+        return YES;
+    }
+    return NO;
 }
 
 @end

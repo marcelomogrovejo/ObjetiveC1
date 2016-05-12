@@ -16,8 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     self.view.backgroundColor = [UIColor yellowColor];
+}
+
+- (void)loadView {
+    self.view = [[UIView alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,10 +7,12 @@
 //
 
 #import "BodyViewController.h"
+#import "ExampleViewController.h"
 
 @interface BodyViewController ()
 
 @property(strong, nonatomic) UILabel *messageLabel;
+@property(strong, nonatomic) UIButton *buttonC;
 
 @end
 
@@ -19,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"Body";
     self.view.backgroundColor = [UIColor magentaColor];
     
     self.messageLabel.text = self.message;
@@ -32,7 +35,28 @@
     self.messageLabel.text = @"Message here";
     [view addSubview:self.messageLabel];
     
+    // Add an extra button for showing examples
+    self.buttonC = [[UIButton alloc] init];
+    self.buttonC.frame = CGRectMake(100, 300, 100, 50);
+    
+    [self.buttonC setTitle:@"Send C" forState:UIControlStateNormal];
+    [self.buttonC setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    
+    [self.buttonC setTitle:@"Sending..." forState:UIControlStateHighlighted];
+    [self.buttonC setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    [self.buttonC addTarget:self action:@selector(goToExamples:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [view addSubview:self.buttonC];
+
+    
     self.view = view;
+}
+
+- (void)goToExamples:(UIButton *)sender {
+    ExampleViewController *examplesViewController = [[ExampleViewController alloc] init];
+    
+    [self.navigationController pushViewController:examplesViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
