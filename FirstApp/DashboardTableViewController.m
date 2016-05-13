@@ -51,18 +51,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"Settings"];
-    
-    //UISwitch *settingSwitch = [[UISwitch alloc] init];
+    cell.textLabel.text = [NSString stringWithFormat:@"Data"];
     
     BOOL isOn = [self.array[[indexPath row]] boolValue];
-    
+
+    //UISwitch *settingSwitch = [[UISwitch alloc] init];
     cell.accessoryType = isOn ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     //cell.accessoryView = settingSwitch;
     
     /*
     settingSwitch.center = CGPointMake(cell.contentView.bounds.size.width/2, cell.contentView.bounds.size.height/2);
-    [cell.contentView addSubview:settingSwitch];*/
+    [cell.contentView addSubview:settingSwitch];
+     */
     
     return cell;
 }
