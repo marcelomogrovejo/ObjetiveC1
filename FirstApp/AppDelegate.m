@@ -32,7 +32,7 @@
     
     // Add a nav bar for home section
     UINavigationController *homeNavBar = [[UINavigationController alloc] init];
-    // It's an array of controller, can be more than one
+    // It's an array of controllers, can be more than one
     homeNavBar.viewControllers = @[homeViewController];
     homeNavBar.tabBarItem.title = @"Home";
     homeNavBar.tabBarItem.image = [UIImage imageNamed:@"home"];
@@ -46,10 +46,15 @@
     dashboardNavBar.tabBarItem.title = @"Dashboard";
     dashboardNavBar.tabBarItem.image = [UIImage imageNamed:@"dashboard"];
     
-    // Adding contact
+    // Adding contact page
     ContactViewController *contactViewController = [[ContactViewController alloc] init];
-    contactViewController.tabBarItem.title = @"Contact";
-    contactViewController.tabBarItem.image = [UIImage imageNamed:@"contact"];
+    
+    // Add a nav bar for contact section
+    UINavigationController *contactNavBar = [[UINavigationController alloc] init];
+    // It's an array of controllers, can be more than one
+    contactNavBar.viewControllers = @[contactViewController];
+    contactNavBar.tabBarItem.title = @"Contact";
+    contactNavBar.tabBarItem.image = [UIImage imageNamed:@"contact"];
     
     // Adding help
     HelpViewController *helpViewController = [[HelpViewController alloc] init];
@@ -57,7 +62,7 @@
     helpViewController.tabBarItem.image = [UIImage imageNamed:@"help"];
     
     // Add the tab bar items
-    tabBarController.viewControllers = @[homeNavBar, dashboardNavBar, contactViewController, helpViewController];
+    tabBarController.viewControllers = @[homeNavBar, dashboardNavBar, contactNavBar, helpViewController];
 
     // Make windows visible
     [self.window makeKeyAndVisible];

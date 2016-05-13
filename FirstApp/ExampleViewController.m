@@ -74,6 +74,11 @@
     [self.updateValue addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventTouchDragInside];
     
     [self.view addSubview:self.updateValue];
+
+    // Adding a gesture recognizer for hidding the keyboard
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] init];
+    [tapGestureRecognizer addTarget:self action:@selector(tappedMainView)];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)switchChanged:(UISwitch *)sender {
@@ -93,6 +98,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)tappedMainView {
+    [self.textField endEditing:YES];
 }
 
 @end

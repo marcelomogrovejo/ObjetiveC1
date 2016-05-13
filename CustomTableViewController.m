@@ -1,36 +1,40 @@
 //
-//  DashboardTableViewController.m
+//  CustomTableViewController.m
 //  FirstApp
 //
-//  Created by Marcelo Mogrovejo on 5/12/16.
+//  Created by Marcelo Mogrovejo on 5/13/16.
 //  Copyright © 2016 Marcelo Mogrovejo. All rights reserved.
 //
 
-#import "DashboardTableViewController.h"
+#import "CustomTableViewController.h"
+#import "DetailViewCell.h"
 
-@interface DashboardTableViewController ()
+@interface CustomTableViewController ()
 
-@property(nonatomic, strong, readwrite)NSMutableArray *array;
+@property(strong, nonatomic) NSMutableArray *cellContent;
 
 @end
 
-@implementation DashboardTableViewController
+@implementation CustomTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"Custom";
+    self.view.backgroundColor = [UIColor blackColor];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
-    // For initializing tableView
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-    // Sets height tableView header section
-    self.tableView.sectionHeaderHeight = 20.0;
-
-    self.array = [@[@(NO), @(NO), @(YES), @(NO), @(YES)] mutableCopy];
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self.tableView registerClass:[DetailViewCell class] forCellReuseIdentifier:@"MyCellId"];
+    
+    self.tableView.rowHeight = 100;
+    
+    // Defines the row items
+    self.cellContent = [@[@"Movie1", @"Movie2", @"Movie3", @"Movie4", @"Movie5"] mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,42 +49,47 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.array count];
+    return 5;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"Data"];
+    DetailViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCellId" forIndexPath:indexPath];
     
-    BOOL isOn = [self.array[[indexPath row]] boolValue];
-
-    //UISwitch *settingSwitch = [[UISwitch alloc] init];
-    cell.accessoryType = isOn ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-    //cell.accessoryView = settingSwitch;
-    
-    /*
-    settingSwitch.center = CGPointMake(cell.contentView.bounds.size.width/2, cell.contentView.bounds.size.height/2);
-    [cell.contentView addSubview:settingSwitch];
-     */
-    
+    switch ([indexPath row]) {
+        case 0:
+            cell.detailImageView.image = [UIImage imageNamed:@"logo"];
+            cell.mainTitle.text = [NSString stringWithFormat:@"Karate kid"];
+            cell.votes.text = [NSString stringWithFormat:@"******"];
+            cell.synopsis.text = [NSString stringWithFormat:@""];
+            break;
+        case 1:
+            cell.detailImageView.image = [UIImage imageNamed:@"logo"];
+            cell.mainTitle.text = [NSString stringWithFormat:@"The God Father"];
+            cell.votes.text = [NSString stringWithFormat:@"****"];
+            cell.synopsis.text = [NSString stringWithFormat:@""];
+            break;
+        case 2:
+            cell.detailImageView.image = [UIImage imageNamed:@"logo"];
+            cell.mainTitle.text = [NSString stringWithFormat:@"Fast and Fourious"];
+            cell.votes.text = [NSString stringWithFormat:@"**"];
+            cell.synopsis.text = [NSString stringWithFormat:@""];
+            break;
+        case 3:
+            cell.detailImageView.image = [UIImage imageNamed:@"logo"];
+            cell.mainTitle.text = [NSString stringWithFormat:@"Interestelar"];
+            cell.votes.text = [NSString stringWithFormat:@"**********"];
+            cell.synopsis.text = [NSString stringWithFormat:@""];
+            break;
+        default:
+            cell.detailImageView.image = [UIImage imageNamed:@"logo"];
+            cell.mainTitle.text = [NSString stringWithFormat:@"Star Wars: The Force is Awaken"];
+            cell.votes.text = [NSString stringWithFormat:@"********"];
+            cell.synopsis.text = [NSString stringWithFormat:@""];
+    }
     return cell;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc] init];
-    headerView.backgroundColor = [UIColor lightGrayColor];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
-    label.text = [NSString stringWithFormat:@"section:%ld", (long)section];
-    [headerView addSubview:label];
-    return headerView;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    BOOL isOn = [self.array[[indexPath row]] boolValue];
-    [self.array replaceObjectAtIndex:[indexPath row] withObject:@(!isOn)];
-    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
 
 /*
 // Override to support conditional editing of the table view.
