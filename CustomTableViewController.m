@@ -31,7 +31,8 @@
     
     [self.tableView registerClass:[DetailViewCell class] forCellReuseIdentifier:@"MyCellId"];
     
-    self.tableView.rowHeight = 100;
+    // Sets each cell height
+    self.tableView.rowHeight = 120;
     
     // Defines the row items
     self.cellContent = [@[@"Movie1", @"Movie2", @"Movie3", @"Movie4", @"Movie5"] mutableCopy];
@@ -58,38 +59,37 @@
     
     switch ([indexPath row]) {
         case 0:
-            cell.detailImageView.image = [UIImage imageNamed:@"logo"];
-            cell.mainTitle.text = [NSString stringWithFormat:@"Karate kid"];
+            cell.detailImageView.image = [UIImage imageNamed:@"karatekid"];
+            cell.mainTitle.text = [NSString stringWithFormat:@"Karate kid (1984)"];
             cell.votes.text = [NSString stringWithFormat:@"******"];
-            cell.synopsis.text = [NSString stringWithFormat:@""];
+            cell.synopsis.text = [NSString stringWithFormat:@"A handyman/martial arts master agrees to teach a bullied boy karate and shows him that there is more to the martial art than fighting."];
             break;
         case 1:
-            cell.detailImageView.image = [UIImage imageNamed:@"logo"];
-            cell.mainTitle.text = [NSString stringWithFormat:@"The God Father"];
+            cell.detailImageView.image = [UIImage imageNamed:@"godfather"];
+            cell.mainTitle.text = [NSString stringWithFormat:@"The God Father (1972)"];
             cell.votes.text = [NSString stringWithFormat:@"****"];
-            cell.synopsis.text = [NSString stringWithFormat:@""];
+            cell.synopsis.text = [NSString stringWithFormat:@"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son."];
             break;
         case 2:
-            cell.detailImageView.image = [UIImage imageNamed:@"logo"];
-            cell.mainTitle.text = [NSString stringWithFormat:@"Fast and Fourious"];
+            cell.detailImageView.image = [UIImage imageNamed:@"fastandfurious"];
+            cell.mainTitle.text = [NSString stringWithFormat:@"Fast & Furious (2009)"];
             cell.votes.text = [NSString stringWithFormat:@"**"];
-            cell.synopsis.text = [NSString stringWithFormat:@""];
+            cell.synopsis.text = [NSString stringWithFormat:@"Brian O'Conner, now working for the FBI in LA, teams up with Dominic Toretto to bring down a heroin importer by infiltrating his operation."];
             break;
         case 3:
-            cell.detailImageView.image = [UIImage imageNamed:@"logo"];
-            cell.mainTitle.text = [NSString stringWithFormat:@"Interestelar"];
+            cell.detailImageView.image = [UIImage imageNamed:@"interstellar"];
+            cell.mainTitle.text = [NSString stringWithFormat:@"Interstellar (2014)"];
             cell.votes.text = [NSString stringWithFormat:@"**********"];
-            cell.synopsis.text = [NSString stringWithFormat:@""];
+            cell.synopsis.text = [NSString stringWithFormat:@"A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival."];
             break;
         default:
-            cell.detailImageView.image = [UIImage imageNamed:@"logo"];
-            cell.mainTitle.text = [NSString stringWithFormat:@"Star Wars: The Force is Awaken"];
+            cell.detailImageView.image = [UIImage imageNamed:@"starwarsvii"];
+            cell.mainTitle.text = [NSString stringWithFormat:@"Star Wars: Episode VII - The Force is Awakens (2015)"];
             cell.votes.text = [NSString stringWithFormat:@"********"];
-            cell.synopsis.text = [NSString stringWithFormat:@""];
+            cell.synopsis.text = [NSString stringWithFormat:@"Three decades after the defeat of the Galactic Empire, a new threat arises. The First Order attempts to rule the galaxy and only a ragtag group of heroes can stop them, along with the help of the Resistance."];
     }
     return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.
